@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>margin负值法(双飞翼布局)</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width:100%;
+            heigth:100%;
+        }
+        .container #main{
+            width:100%;
+            float: left;
+            height: 250px;
+        }
+        #main #center{
+            margin:0 150px;
+            background-color: #cca3ff;
+            height:100%;
+
+        }
+
+       #left{
+            float: left;
+            width:150px;
+            height: 250px;
+            margin-left:-100%;
+            background-color: green;
+        }
+       #right{
+            float: left;
+            width:150px;
+            height:250px;
+            margin-left:-150px;
+            background-color: #ffec38;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div id="main">
+        <div id="center"></div>
+    </div>
+    <div id="left"></div>
+    <div id="right"></div>
+    <p>利用的是浮动元素 margin 负值,此方法很难用一句话概括。首先，中间的主体要使用双层标签。外层div宽度100%显示，并且浮动（本例左浮动，下面所述依次为基础），内层div为真正的主体内容，含有左右150像素的margin值。左栏与右栏都是采用margin负值定位的，左栏左浮动，margin-left为-100%，由于前面的div宽度100%与浏览器，所以这里的-100%margin值正好使左栏div定位到了页面的左侧；右侧栏也是左浮动，其margin-left也是负值，大小为其本身的宽度即150像素,这样他就会到右边占据主体的margin-right的这个空白部分。</p>
+    <p>此方法的优点：三栏相互关联，可谓真正意义上的自适应，有一定的抗性——布局不易受内部影响。
+        缺点在于：相对比较难理解些，上手不容易，代码相对复杂。出现百分比宽度，过多的负值定位，如果出现布局的bug，排查不易</p>
+</div>
+</body>
+</html>

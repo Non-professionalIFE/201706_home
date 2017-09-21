@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>左右浮动</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width:100%;
+            heigth:100%;
+        }
+        .container #left{
+            float: left;
+            width:150px;
+            height:250px;
+            background-color: #cca3ff;
+        }
+        .container #center{
+
+            margin-left:150px;
+            margin-right:150px;
+            height:250px;
+            background-color: green;
+        }
+        .container #right{
+            float: right;
+            width:150px;
+            height:250px;
+            background-color: #ffec38;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!--为啥center放中间right会掉下来？-->
+    <!--<div id="left"></div>-->
+    <!--<div id="center"></div>-->
+    <!--<div id="right"></div>-->
+
+    <div id="left"></div>
+    <div id="right"></div>
+    <div id="center"></div>
+<p>这里三个div标签的顺序的关键是要把主体div放在最后，左右两栏div顺序任意。
+    此方法的优点是：代码足够简洁与高效
+    不足在于：中间主体存在克星，clear:both属性。如果要使用此方法，需避免明显的clear样式。</p>
+</div>
+</body>
+</html>
